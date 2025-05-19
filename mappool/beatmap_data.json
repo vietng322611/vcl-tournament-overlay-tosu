@@ -1,5 +1,6 @@
 [
 	{
+		"mods": "NM",
 		"set_id": 2152292,
 		"map_id": 4534810,
 		"artist": "Ave Mujica",
@@ -11,9 +12,10 @@
 		"od": 9.2,
 		"drain": "03:17",
 		"bpm": 222,
-		"sr": 8.01
+		"sr": 8.02
 	},
 	{
+		"mods": "NM",
 		"set_id": 1808789,
 		"map_id": 3709823,
 		"artist": "Ata",
@@ -25,9 +27,10 @@
 		"od": 9,
 		"drain": "04:42",
 		"bpm": 220,
-		"sr": 8.38
+		"sr": 8.28
 	},
 	{
+		"mods": "NM",
 		"set_id": 1274776,
 		"map_id": 2655469,
 		"artist": "Hatsuki Yura",
@@ -39,9 +42,10 @@
 		"od": 9,
 		"drain": "04:21",
 		"bpm": 154,
-		"sr": 7.21
+		"sr": 7.29
 	},
 	{
+		"mods": "NM",
 		"set_id": 1486981,
 		"map_id": 3048737,
 		"artist": "Aoi Sumito",
@@ -53,9 +57,10 @@
 		"od": 9,
 		"drain": "02:14",
 		"bpm": 185,
-		"sr": 7.18
+		"sr": 7.11
 	},
 	{
+		"mods": "NM",
 		"set_id": 1879158,
 		"map_id": 3868554,
 		"artist": "Lime",
@@ -67,9 +72,10 @@
 		"od": 9.6,
 		"drain": "02:19",
 		"bpm": 227,
-		"sr": 7.37
+		"sr": 7.35
 	},
 	{
+		"mods": "NM",
 		"set_id": 1878939,
 		"map_id": 3868006,
 		"artist": "Powerless",
@@ -81,9 +87,10 @@
 		"od": 9,
 		"drain": "03:30",
 		"bpm": 240,
-		"sr": 6.93
+		"sr": 6.97
 	},
 	{
+		"mods": "HD",
 		"set_id": 1589180,
 		"map_id": 3245938,
 		"artist": "bbno$ & Rich Brian",
@@ -95,9 +102,10 @@
 		"od": 9,
 		"drain": "02:11",
 		"bpm": 106,
-		"sr": 6.93
+		"sr": 0
 	},
 	{
+		"mods": "HD",
 		"set_id": 1587308,
 		"map_id": 3241847,
 		"artist": "KOTOKO",
@@ -109,9 +117,10 @@
 		"od": 9,
 		"drain": "03:48",
 		"bpm": 144,
-		"sr": 5.63
+		"sr": 0
 	},
 	{
+		"mods": "HD",
 		"set_id": 1879368,
 		"map_id": 3869010,
 		"artist": "Alkome",
@@ -123,9 +132,10 @@
 		"od": 9.5,
 		"drain": "02:23",
 		"bpm": 175,
-		"sr": 7.22
+		"sr": 0
 	},
 	{
+		"mods": "HD",
 		"set_id": 1835836,
 		"map_id": 3769144,
 		"artist": "Mori Calliope, Giga & TeddyLoid",
@@ -137,9 +147,10 @@
 		"od": 9,
 		"drain": "02:44",
 		"bpm": 138,
-		"sr": 6.61
+		"sr": 0
 	},
 	{
+		"mods": "HR",
 		"set_id": 642369,
 		"map_id": 1361845,
 		"artist": "Kusunoki Arisu(CV:Horinaka Yuki)",
@@ -151,9 +162,10 @@
 		"od": 10,
 		"drain": "03:54",
 		"bpm": 200,
-		"sr": 7.22
+		"sr": 7.2
 	},
 	{
+		"mods": "HR",
 		"set_id": 1714660,
 		"map_id": 3503561,
 		"artist": "Nanashi Mumei",
@@ -165,9 +177,10 @@
 		"od": 10,
 		"drain": "03:41",
 		"bpm": 120,
-		"sr": 6.69
+		"sr": 6.75
 	},
 	{
+		"mods": "HR",
 		"set_id": 1613731,
 		"map_id": 3294612,
 		"artist": "isekaijoucho",
@@ -182,6 +195,7 @@
 		"sr": 7.06
 	},
 	{
+		"mods": "HR",
 		"set_id": 455109,
 		"map_id": 977875,
 		"artist": "LeaF",
@@ -193,9 +207,10 @@
 		"od": 10,
 		"drain": "02:18",
 		"bpm": 210,
-		"sr": 7.2
+		"sr": 7.23
 	},
 	{
+		"mods": "DT",
 		"set_id": 1884880,
 		"map_id": 3880866,
 		"artist": "mamenoi",
@@ -207,9 +222,10 @@
 		"od": 9.4,
 		"drain": "03:05",
 		"bpm": 259.5,
-		"sr": 7.12
+		"sr": 7.09
 	},
 	{
+		"mods": "DT",
 		"set_id": 477763,
 		"map_id": 1027019,
 		"artist": "ZUN",
@@ -221,9 +237,10 @@
 		"od": 9.1,
 		"drain": "02:52",
 		"bpm": 243,
-		"sr": 7.41
+		"sr": 7.27
 	},
 	{
+		"mods": "DT",
 		"set_id": 1054988,
 		"map_id": 2204379,
 		"artist": "-45",
@@ -235,9 +252,10 @@
 		"od": 9.8,
 		"drain": "03:53",
 		"bpm": 225,
-		"sr": 7.25
+		"sr": 7.29
 	},
 	{
+		"mods": "DT",
 		"set_id": 671607,
 		"map_id": 1419974,
 		"artist": "monet",
@@ -249,9 +267,10 @@
 		"od": 9.7,
 		"drain": "02:12",
 		"bpm": 184.5,
-		"sr": 7.5
+		"sr": 7.46
 	},
 	{
+		"mods": "TB",
 		"set_id": 1881706,
 		"map_id": 3873990,
 		"artist": "Sad Keyboard Guy, sleepless & Myntian",
@@ -263,6 +282,6 @@
 		"od": 9,
 		"drain": "06:43",
 		"bpm": 180,
-		"sr": 7.56
+		"sr": 7.59
 	}
 ]
