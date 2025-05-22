@@ -1,13 +1,13 @@
-# Mods count
+# Number of mods for this round
 6
-# Format: [mod_name] [map_count]
+# Format: [mod_name] [number_of_maps_for_this_mod]
 NM 7
 HR 4
 DT 4
 RX 3
 AP 3
 TB 1
-# Map IDs in mod order
+# Map IDs in mod order (just copy paste from main sheet)
 3430044
 3299406
 3623248
