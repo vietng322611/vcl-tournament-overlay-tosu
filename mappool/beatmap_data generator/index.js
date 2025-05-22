@@ -1,11 +1,12 @@
-require('dotenv').config();
-
 // get your APIv1 key from https://osu.ppy.sh/home/account/edit#legacy-api
-const API_KEY = process.env.API_KEY;
+const API_KEY = "YOUR_API_KEY_GOES_HERE";
+
 const axios = require("axios");
 const fs = require("fs");
 
-const dataJson = JSON.parse(fs.readFileSync("../beatmaps.json"));
+const dataArr = fs.readFileSync("../beatmaps.txt", "utf-8").split("\n").filter(line => {
+  return !(line.trim().startsWith("#") || line.trim() === "");
+});
 
 // No SR change -> enum = 0
 const modEnums = {
@@ -21,6 +22,25 @@ const modEnums = {
   AP: 0,
   TB: 0,
 };
+
+function extractData(data) {
+  let modCount = parseInt(data[0])
+  let mods = []
+  for (let i = 1; i <= modCount; i++)
+    mods.push(data[i].split(" "));
+
+  let output = new Map();
+  let i = modCount + 1;
+  for (const mod of mods) {
+    let modName = mod[0];
+    let count = parseInt(mod[1]);
+    for (let j = 0; j < count; j++) {
+      output.set(parseInt(data[i]), modName);
+      i++;
+    }
+  }
+  return output;
+}
 
 function cap(input, cap) {
   if (input > cap) return cap;
@@ -88,30 +108,31 @@ function difficultyCalculate(data, mod) {
 }
 
 (async () => {
+  let dataMap = extractData(dataArr);
   const dataOut = [];
 
-  for (const id of dataJson) {
+  for (const [mapID, mod] of dataMap) {
     console.log(
-      `Getting map details for ID = ${id.beatmapId} & mod = ${id.mods}`
+      `Getting map details for ID = ${mapID} & mod = ${mod}`
     );
     const data = (
       await axios.get(`/get_beatmaps`, {
         baseURL: "https://osu.ppy.sh/api",
         params: {
           k: API_KEY,
-          b: id.beatmapId,
-          mods: getEnumValue(id.mods),
+          b: mapID,
+          mods: getEnumValue(mod),
         },
       })
     ).data[0];
 
     const { cs, ar, od, hp, bpm, drain, length } = difficultyCalculate(
       data,
-      getEnumValue(id.mods)
+      getEnumValue(mod)
     );
 
     dataOut.push({
-      mods: id.mods,
+      mods: mod,
       set_id: Number(data.beatmapset_id),
       map_id: Number(data.beatmap_id),
       artist: data.artist,
