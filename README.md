@@ -11,7 +11,7 @@ ___
 - Install [**Tosu**](https://github.com/KotRikD/tosu/releases/latest)
 - Download this repo as .zip and extract to `static` folder of Tosu
 - Rename either `index_acc.js` or `index_score.js` to `index.js`, depends on which win condition you are using
-- Generate `\mappool\beatmaps.json` using `\mappool\gen.py` and `\mappool\mappool.txt`
+- Add beatmap data to `beatmaps.txt` in `\mappool` (see the template)
 - Generate `\mappool\beatmap_data.json` using the script in `\mappool\beatmap_data generator` folder
 
 ## Styling
