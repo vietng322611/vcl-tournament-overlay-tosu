@@ -53,7 +53,7 @@ let tempTempMapID;
 let scoreLeft = [];
 let scoreRight = [];
 
-let tempLastPick = "Blue";
+let tempLastPick = "";
 
 const mods = {
   NM: 0,
@@ -115,7 +115,7 @@ class Beatmap {
   grayedOut() {
     this.overlay.style.opacity = "1";
   }
-  PickedOn(type) {
+  onPicked(type) {
     this.pickedStatus.className = `picked${type}`;
     this.overlay.style.opacity = "0.5";
     this.metadata.style.opacity = "1";
@@ -223,36 +223,42 @@ async function setupBeatmaps() {
     bm.clicker.addEventListener("mousedown", function () {
       bm.clicker.addEventListener("click", function (event) {
         if (event.shiftKey) {
+          if (bm.beatmapID == lastPicked.innerHTML) changePicker("Red", 0);
           bm.pickedStatus.className = "bannedRed";
           bm.overlay.style.opacity = "0.8";
           bm.metadata.style.opacity = "0.3";
           bm.difficulty.style.opacity = "0.3";
           bm.pickedStatus.innerHTML = `Banned by ${team1}`;
         } else if (event.ctrlKey) {
+          if (bm.overlay.style.opacity == "0.5") changePicker("Red", 0);
           bm.overlay.style.opacity = "0.5";
           bm.metadata.style.opacity = "1";
           bm.difficulty.style.opacity = "1";
           bm.pickedStatus.className = "pickedStatus";
           bm.pickedStatus.innerHTML = "";
         } else {
-          bm.PickedOn("Red");
+          bm.onPicked("Red");
+          changePicker("Red", bm.beatmapID);
         }
       });
       bm.clicker.addEventListener("contextmenu", function (event) {
         if (event.shiftKey) {
+          if (bm.beatmapID == lastPicked.innerHTML) changePicker("Blue", 0);
           bm.pickedStatus.className = "bannedBlue";
           bm.overlay.style.opacity = "0.8";
           bm.metadata.style.opacity = "0.3";
           bm.difficulty.style.opacity = "0.3";
           bm.pickedStatus.innerHTML = `Banned by ${team2}`;
         } else if (event.ctrlKey) {
+          if (bm.overlay.style.opacity == "0.5") changePicker("Blue", 0);
           bm.overlay.style.opacity = "0.5";
           bm.metadata.style.opacity = "1";
           bm.difficulty.style.opacity = "1";
           bm.pickedStatus.className = "pickedStatus";
           bm.pickedStatus.innerHTML = "";
         } else {
-          bm.PickedOn("Blue");
+          bm.onPicked("Blue");
+          changePicker("Blue", bm.beatmapID);
         }
       });
     });
@@ -284,17 +290,31 @@ async function getDataSet(beatmapID) {
 }
 
 let pickedOnManual = (id) => {
-  tempLastPick = tempLastPick === "Red" ? "Blue" : "Red";
-  if (document.getElementById(`id-${id}-clicker`)) {
-    let pickedStatus = document.getElementById(`id-${id}-status`);
-    let overlay = document.getElementById(`id-${id}-overlay`);
-    let metadata = document.getElementById(`id-${id}-metadata`);
-    let difficulty = document.getElementById(`id-${id}-difficulty`);
-
-    pickedStatus.className = `picked${tempLastPick}`;
-    overlay.style.opacity = "0.5";
-    metadata.style.opacity = "1";
-    difficulty.style.opacity = "1";
-    pickedStatus.innerHTML = "Picked";
+  if (!document.getElementById(`id-${id}-clicker`)) {
+    changePicker(tempLastPick, 0);
+    return;
   }
+  tempLastPick = tempLastPick === "Red" ? "Blue" : "Red";
+  let pickedStatus = document.getElementById(`id-${id}-status`);
+  let overlay = document.getElementById(`id-${id}-overlay`);
+  let metadata = document.getElementById(`id-${id}-metadata`);
+  let difficulty = document.getElementById(`id-${id}-difficulty`);
+
+  pickedStatus.className = `picked${tempLastPick}`;
+  overlay.style.opacity = "0.5";
+  metadata.style.opacity = "1";
+  difficulty.style.opacity = "1";
+  pickedStatus.innerHTML = "Picked";
+
+  changePicker(tempLastPick, id);
 };
+
+async function changePicker(team, id) {
+  window.parent.postMessage({
+    type: "responseData",
+    payload: {
+      team: team,
+      beatmapID: id,
+    }
+  })
+}

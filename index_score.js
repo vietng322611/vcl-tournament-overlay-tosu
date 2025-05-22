@@ -12,6 +12,10 @@ let user = {};
 let nowPlayingContainer = document.getElementById("nowPlayingContainer");
 let stats = document.getElementById("mapStat");
 
+// MAP PICKER
+let picker = document.getElementById("pickedBy");
+let mappoolPicker;
+
 // TEAM OVERALL SCORE
 let teamLeftName = document.getElementById("teamLeftName");
 let teamRightName = document.getElementById("teamRightName");
@@ -92,6 +96,8 @@ let leftScoreWidth, rightScoreWidth;
 
 let integratedMappool = 0;
 let tempIntegratedMappool;
+
+let tempPicker = "Blue";
 
 let toMins = (time) => {
   let minutes =
@@ -191,6 +197,7 @@ socket.api_v2((data) => {
     // tempSR !== data.beatmap.stats.fullSR ||
     // tempLength !== data.beatmap.time.full
   ) {
+    changePicker();
     const beatmapData = extractBeatmapData(data.beatmap);
 
     tempMapID = beatmapData.map_id;
@@ -450,7 +457,7 @@ async function getDataSet(name) {
 }
 
 async function iFrameInitiate() {
-  let mappoolPicker = document.createElement("iframe");
+  mappoolPicker = document.createElement("iframe");
   mappoolPicker.setAttribute("src", `./mappool`);
   mappoolPicker.setAttribute("frameBorder", "0");
   mappoolPicker.setAttribute("name", `picker`);
